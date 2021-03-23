@@ -1,9 +1,7 @@
-from Vendor import Vendor
-from Customer import Customer
+from Order import Order
 from util_lib import display_menu
 
-Vendor_List=[]
-Customer_List=[]
+arham={"Vendor":[],"Customer":[]}
 main_menu=["Purchase","Sales","Exit"]
 sub_menu=["Entry","View","Main Menu"]
 op1=0
@@ -19,14 +17,14 @@ while op1 != main_menu.index("Exit"):
             if op2==sub_menu.index("Entry"):
                 op3="yes"
                 while op3.lower()=="yes":
-                    vendor=Vendor()
-                    vendor.setVendor()
-                    Vendor_List.append(vendor)
+                    order=Order()
+                    order.setOrder(title="Vendor")
+                    arham["Vendor"].append(order)
                     op3=input("Do you want to add another Bill?(yes/no):")
             elif op2==sub_menu.index("View"):
                 print("\t\t View ")
-                for vendor in Vendor_List:
-                    vendor.getVendor()
+                for order in arham["Vendor"]:
+                    order.getOrder(title="Vendor")
                     print("===========================")
             elif op2==sub_menu.index("Main Menu"):
                 print("Back to the main menu")
@@ -40,14 +38,14 @@ while op1 != main_menu.index("Exit"):
             if op2 == sub_menu.index("Entry"):
                 op3 = "yes"
                 while op3.lower() == "yes":
-                    customer=Customer()
-                    customer.setCustomer()
-                    Customer_List.append(customer)
+                    order=Order()
+                    order.setOrder(title="Customer")
+                    arham["Customer"].append(order)
                     op3 = input("Do you want to add another Bill?(yes/no):")
             elif op2 == sub_menu.index("View"):
                 print("\t\t View ")
-                for customer in Customer_List:
-                    customer.getCustomer()
+                for order in arham["Customer"]:
+                    order.getOrder(title="Customer")
                     print("===========================")
             elif op2 == sub_menu.index("Main Menu"):
                 print("Back to the main menu")
